@@ -38,12 +38,12 @@ fi
 if [[ ! -a /proc/fs/nfsd/threads ]]; then
  echo 'starting rpc.nfsd'
  echo $(pgrep 'nfsd')
- /usr/sbin/rpc.nfsd -V3 -N2 -N4 -d 8
+ /usr/sbin/rpc.nfsd -V3 -N2 -V4 -d 8
 fi
 
 if ! is_process_running 'rpc.mountd'; then
  echo 'starting rpc.mountd'
- /usr/sbin/rpc.mountd -V3 -N2 -N4 --port 32767
+ /usr/sbin/rpc.mountd -V3 -N2 -V4 --port 32767
  /usr/sbin/exportfs -ra
 fi
 
